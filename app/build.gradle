@@ -11,6 +11,12 @@ android {
         }
     }
 
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
     defaultConfig {
         applicationId "com.fongmi.android.tv"
         minSdk 24
@@ -130,6 +136,7 @@ dependencies {
     implementation 'org.eclipse.jetty:jetty-client:8.1.21.v20160908'
     implementation('org.eclipse.jetty:jetty-server:8.1.21.v20160908') { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
     implementation('org.eclipse.jetty:jetty-servlet:8.1.21.v20160908') { exclude group: 'org.eclipse.jetty.orbit', module: 'javax.servlet' }
+    // 丞相修改：添加 mavenCentral 仓库声明，解决 cling 依赖问题
     implementation 'org.fourthline.cling:cling-core:2.1.1'
     implementation 'org.fourthline.cling:cling-support:2.1.1'
     implementation 'org.greenrobot:eventbus:3.3.1'
