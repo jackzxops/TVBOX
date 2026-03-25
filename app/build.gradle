@@ -11,12 +11,6 @@ android {
         }
     }
 
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-
     defaultConfig {
         applicationId "com.fongmi.android.tv"
         minSdk 24
