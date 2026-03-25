@@ -63,13 +63,14 @@ public class Device implements Diffable<Device>, Comparable<Device> {
         return device;
     }
 
-    public static Device get(org.fourthline.cling.model.meta.Device<?, ?, ?> item) {
-        Device device = new Device();
-        device.setUuid(item.getIdentity().getUdn().getIdentifierString());
-        device.setName(item.getDetails().getFriendlyName());
-        device.setType(2);
-        return device;
-    }
+    // 丞相注释：移除 cling 依赖
+    // public static Device get(org.fourthline.cling.model.meta.Device<?, ?, ?> item) {
+    //     Device device = new Device();
+    //     device.setUuid(item.getIdentity().getUdn().getIdentifierString());
+    //     device.setName(item.getDetails().getFriendlyName());
+    //     device.setType(2);
+    //     return device;
+    // }
 
     public static Device objectFrom(String str) {
         return App.gson().fromJson(str, Device.class);

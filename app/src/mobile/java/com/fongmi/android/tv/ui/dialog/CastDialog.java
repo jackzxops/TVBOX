@@ -35,8 +35,9 @@ import com.github.catvod.utils.Path;
 import com.github.catvod.utils.Util;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-import org.fourthline.cling.support.lastchange.EventedValue;
-import org.fourthline.cling.support.model.TransportState;
+// 丞相注释：移除 cling 依赖
+// import org.fourthline.cling.support.lastchange.EventedValue;
+// import org.fourthline.cling.support.model.TransportState;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
