@@ -24,7 +24,9 @@ jobs:
       uses: gradle/gradle-build-action@v3
 
     - name: Build Debug APK
-      run: ./gradlew assembleLeanbackArm64_v8aDebug assembleMobileArm64_v8aDebug
+      run: |
+        chmod +x gradlew
+        ./gradlew assembleLeanbackArm64_v8aDebug assembleMobileArm64_v8aDebug
 
     - name: Upload APK (Leanback)
       uses: actions/upload-artifact@v4
