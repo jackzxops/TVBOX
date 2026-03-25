@@ -1,0 +1,7 @@
+// 丞相修改：确保所有子模块都有完整的仓库配置
+// 此文件用于强制所有模块使用统一的仓库
+repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
