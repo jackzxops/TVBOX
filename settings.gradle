@@ -21,6 +21,8 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
         maven { url 'https://oss.sonatype.org/content/repositories/releases/' }
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        // JCenter 归档仓库 - cling-core 在这里
+        maven { url 'https://jcenter.bintray.com/' }
     }
 }
 rootProject.name = "TV"
