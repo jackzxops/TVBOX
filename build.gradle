@@ -4,6 +4,15 @@ plugins {
     id 'com.chaquo.python' version '17.0.0' apply false
 }
 
+// 添加 JitPack 仓库 - 丞相修改
+subprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 tasks.register('clean', Delete) {
     delete rootProject.layout.buildDirectory
 }
