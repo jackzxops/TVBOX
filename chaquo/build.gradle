@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-    id 'com.chaquo.python'
+    // id 'com.chaquo.python'  // 禁用 Python 支持 - 丞相修改
 }
 
 android {
@@ -15,12 +15,12 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 36
-        python {
-            version "3.10"
-            pip {
-                install("-r", "requirements.txt")
-            }
-        }
+        // python {  // 禁用 Python 配置 - 丞相修改
+        //     version "3.10"
+        //     pip {
+        //         install("-r", "requirements.txt")
+        //     }
+        // }
     }
 
     flavorDimensions = ["abi"]
@@ -38,7 +38,7 @@ android {
 
     sourceSets {
         main {
-            python.srcDirs = ["src/main/python"]
+            // python.srcDirs = ["src/main/python"]  // 禁用 - 丞相修改
         }
     }
 

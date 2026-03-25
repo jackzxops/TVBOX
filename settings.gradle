@@ -1,25 +1,23 @@
 pluginManagement {
     repositories {
+        google()
         gradlePluginPortal()
         mavenCentral()
-        google()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'com.chaquo.python') {
+                useModule('com.chaquo.python:gradle:15.0.1')
+            }
+        }
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        mavenCentral()
         google()
-        flatDir { dirs "$rootDir/app/libs" }
-        maven { url "https://jitpack.io" }
-        maven {
-            url "http://4thline.org/m2"
-            allowInsecureProtocol = true
-        }
+        mavenCentral()
     }
 }
-include ':app'
-include ':catvod'
-include ':chaquo'
-include ':quickjs'
 rootProject.name = "TV"
+include ':app', ':catvod', ':quickjs', ':chaquo', ':hook', ':jianpian', ':thunder', ':tvbus', ':forcetech', ':zlive'
