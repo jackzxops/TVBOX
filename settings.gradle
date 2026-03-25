@@ -22,4 +22,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "TV"
-include ':app', ':catvod', ':quickjs', ':chaquo', ':hook', ':jianpian', ':thunder', ':tvbus', ':forcetech', ':zlive'
+include ':app', ':catvod', ':quickjs', ':hook', ':jianpian', ':thunder', ':tvbus', ':forcetech', ':zlive'
+// include ':chaquo'  // 丞相禁用：不需要 Python 支持
