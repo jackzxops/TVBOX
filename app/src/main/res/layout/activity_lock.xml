@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 数据源过期锁定界面布局 - 丞相添加 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1a"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_lock"
+        android:contentDescription="锁定图标" />
+
+    <TextView
+        android:id="@+id/tv_remaining_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="已过期"
+        android:textColor="#ff4444"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_expire_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="数据源已过期，请获取新的数据源配置"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_contact_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="关注公众号获取新数据源"
+        android:textColor="#888888"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:text="刷新状态"
+        android:textSize="16sp"
+        android:onClick="onRefreshClick" />
+
+    <Button
+        android:id="@+id/btn_copy"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="复制公众号"
+        android:textSize="16sp"
+        android:onClick="copyAccount" />
+
+    <Button
+        android:id="@+id/btn_wechat"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="打开微信"
+        android:textSize="16sp"
+        android:onClick="openWeChat" />
+
+</LinearLayout>
