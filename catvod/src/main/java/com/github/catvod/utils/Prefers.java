@@ -37,6 +37,14 @@ public class Prefers {
         }
     }
 
+    public static long getLong(String key, long defaultValue) {
+        try {
+            return getPrefers().getLong(key, defaultValue);
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
     public static float getFloat(String key) {
         return getFloat(key, 0f);
     }

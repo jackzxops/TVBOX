@@ -1,7 +1,5 @@
 package com.fongmi.android.tv.api.loader;
 
-import com.fongmi.android.tv.App;
-import com.fongmi.chaquo.Loader;
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.crawler.SpiderNull;
 
@@ -11,12 +9,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PyLoader {
 
     private final ConcurrentHashMap<String, Spider> spiders;
-    private final Loader loader;
     private String recent;
 
     public PyLoader() {
         spiders = new ConcurrentHashMap<>();
-        loader = new Loader();
+        // 丞相注：chaquo 模块已禁用，Python 爬虫功能不可用
+        // 所有 Python 爬虫请求将返回空 Spider
     }
 
     public void clear() {
@@ -29,17 +27,9 @@ public class PyLoader {
     }
 
     public Spider getSpider(String key, String api, String ext) {
-        return spiders.computeIfAbsent(key, k -> {
-            try {
-                Spider spider = loader.spider(api);
-                spider.siteKey = key;
-                spider.init(App.get(), ext);
-                return spider;
-            } catch (Throwable e) {
-                e.printStackTrace();
-                return new SpiderNull();
-            }
-        });
+        // 丞相注：由于 chaquo 模块已禁用，Python 爬虫功能不可用
+        // 返回空的 Spider 实现
+        return new SpiderNull();
     }
 
     public Object[] proxy(Map<String, String> params) throws Exception {

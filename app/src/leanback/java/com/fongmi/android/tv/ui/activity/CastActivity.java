@@ -123,7 +123,9 @@ public class CastActivity extends BaseActivity implements CustomKeyDownVod.Liste
 
     private String getName() {
         try {
-            return new DIDLParser().parse(mAction.getCurrentURIMetaData()).getItems().get(0).getId();
+            // 丞相注释：移除 cling 依赖，DIDLParser 已不可用
+            // return new DIDLParser().parse(mAction.getCurrentURIMetaData()).getItems().get(0).getId();
+            return mAction.getCurrentURI();
         } catch (Exception e) {
             return mAction.getCurrentURI();
         }
@@ -135,7 +137,8 @@ public class CastActivity extends BaseActivity implements CustomKeyDownVod.Liste
         mBinding.widget.title.setText(getName());
         mBinding.widget.title.setSelected(true);
         position = duration = C.TIME_UNSET;
-        mService.bindRealPlayer(this);
+        // 丞相注释：移除 cling 依赖，bindRealPlayer 已不可用
+        // mService.bindRealPlayer(this);
         start();
     }
 
@@ -376,7 +379,9 @@ public class CastActivity extends BaseActivity implements CustomKeyDownVod.Liste
     }
 
     private void setState(RenderState state) {
-        if (mService != null) mService.notifyAvTransportLastChange(mState = state);
+        // 丞相注释：移除 cling 依赖，notifyAvTransportLastChange 已不可用
+        // if (mService != null) mService.notifyAvTransportLastChange(mState = state);
+        mState = state;
     }
 
     @NonNull
@@ -547,7 +552,8 @@ public class CastActivity extends BaseActivity implements CustomKeyDownVod.Liste
         mPlayers.release();
         unbindService(this);
         PlaybackService.stop();
-        mService.bindRealPlayer(null);
+        // 丞相注释：移除 cling 依赖，bindRealPlayer 已不可用
+        // mService.bindRealPlayer(null);
         App.removeCallbacks(mR1, mR2);
         super.onDestroy();
     }
