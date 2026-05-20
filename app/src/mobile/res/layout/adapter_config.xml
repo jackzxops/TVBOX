@@ -16,7 +16,7 @@
         android:singleLine="true"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="14sp"
-        tools:text="https://fongmi.github.io/cat.json" />
+        tools:text="https://your-domain/config.json" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/delete"
