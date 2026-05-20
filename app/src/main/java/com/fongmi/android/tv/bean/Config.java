@@ -256,6 +256,9 @@ public class Config {
         if (isEmpty()) return this;
         setTime(System.currentTimeMillis());
         Prefers.put("config_" + getType(), getUrl());
+        // 新数据源写入时重置 15 天计时，确保用户更新后重新开始计期
+        com.fongmi.android.tv.Setting.setSourceTimestamp(System.currentTimeMillis());
+        com.fongmi.android.tv.Setting.setSourceExpired(false);
         return save();
     }
 

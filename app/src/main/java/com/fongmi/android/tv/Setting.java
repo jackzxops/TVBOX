@@ -311,6 +311,14 @@ public class Setting {
     }
 
     /**
+     * 清除数据源配置时间戳和过期状态
+     */
+    public static void clearSourceState() {
+        Prefers.put(KEY_SOURCE_TIMESTAMP, 0L);
+        Prefers.put(KEY_SOURCE_EXPIRED, false);
+    }
+
+    /**
      * 获取数据源配置时间戳
      */
     public static long getSourceTimestamp() {
