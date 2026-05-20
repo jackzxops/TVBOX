@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="当前数据源配置已超过有效期，请更新后继续使用"
+        android:text="当前数据源配置已超过有效期，请前往公众号更新后继续使用"
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:gravity="center" />
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="关注公众号，回复“更新”获取最新数据源"
+        android:text="关注公众号【博博哥哥爱搞笑】，回复“更新”获取最新数据源"
         android:textColor="#cccccc"
         android:textSize="16sp"
         android:gravity="center" />
