@@ -24,19 +24,20 @@ import java.util.Locale;
 public class Updater implements Download.Callback {
 
     private DialogUpdateBinding binding;
-    private final Download download;
+    private Download download;
     private AlertDialog dialog;
+    private String apkUrl;
 
     private File getFile() {
         return Path.cache("update.apk");
     }
 
     private String getJson() {
-        return Github.getJson(BuildConfig.FLAVOR_mode);
+        return Github.getManagedUpdate();
     }
 
     private String getApk() {
-        return Github.getApk(BuildConfig.FLAVOR_mode + "-" + BuildConfig.FLAVOR_abi);
+        return apkUrl != null && !apkUrl.isEmpty() ? apkUrl : Github.getApk(BuildConfig.FLAVOR_mode + "-" + BuildConfig.FLAVOR_abi);
     }
 
     public static Updater create() {
@@ -44,7 +45,6 @@ public class Updater implements Download.Callback {
     }
 
     public Updater() {
-        this.download = Download.create(getApk(), getFile());
     }
 
     public Updater force() {
@@ -69,6 +69,7 @@ public class Updater implements Download.Callback {
             String name = object.optString("name");
             String desc = object.optString("desc");
             int code = object.optInt("code");
+            apkUrl = object.optString("apk", object.optString("url", ""));
             if (code > BuildConfig.VERSION_CODE) App.post(() -> show(activity, name, desc));
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,12 +91,13 @@ public class Updater implements Download.Callback {
 
     private void cancel(View view) {
         Setting.putUpdate(false);
-        download.cancel();
+        if (download != null) download.cancel();
         dismiss();
     }
 
     private void confirm(View view) {
         view.setEnabled(false);
+        download = Download.create(getApk(), getFile());
         download.start(this);
     }
 

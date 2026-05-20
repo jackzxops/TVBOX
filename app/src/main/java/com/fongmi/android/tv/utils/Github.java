@@ -2,7 +2,15 @@ package com.fongmi.android.tv.utils;
 
 public class Github {
 
-    public static final String URL = "https://raw.githubusercontent.com/FongMi/Release/fongmi";
+    public static final String URL = "https://your-domain";
+
+    public static String getManagedEntry() {
+        return URL + "/config.json";
+    }
+
+    public static String getManagedUpdate() {
+        return URL + "/update.json";
+    }
 
     private static String getUrl(String name) {
         return URL + "/apk/" + name;
