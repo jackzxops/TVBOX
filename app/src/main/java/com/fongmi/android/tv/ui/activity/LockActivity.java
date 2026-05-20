@@ -44,16 +44,17 @@ public class LockActivity extends Activity {
 
     private void updateUI() {
         int remainingDays = Setting.getRemainingDays();
+        String accountGuide = "关注公众号【" + WECHAT_PUBLIC_ACCOUNT + "】，回复“更新”获取最新数据源";
         
         if (remainingDays <= 0) {
-            tvRemainingDays.setText("已过期");
-            tvExpireMessage.setText("数据源已过期，请获取新的数据源配置");
+            tvRemainingDays.setText("配置已过期");
+            tvExpireMessage.setText("当前数据源配置已超过有效期，请更新后继续使用");
         } else {
             tvRemainingDays.setText("剩余 " + remainingDays + " 天");
-            tvExpireMessage.setText("数据源即将过期");
+            tvExpireMessage.setText("数据源配置即将到期，建议提前获取最新配置");
         }
         
-        tvContactInfo.setText("关注公众号【" + WECHAT_PUBLIC_ACCOUNT + "】获取新数据源");
+        tvContactInfo.setText(accountGuide);
     }
 
     /**
@@ -63,7 +64,7 @@ public class LockActivity extends Activity {
         if (!Setting.isSourceExpired()) {
             finish(); // 如果未过期，关闭锁定界面
         } else {
-            Toast.makeText(this, "请先关注公众号获取新数据源", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "配置仍已过期，请先获取并导入最新数据源", Toast.LENGTH_LONG).show();
         }
     }
 
